@@ -1,0 +1,32 @@
+<div class="dishDetail">
+
+   <mat-card class="example-card" *ngIf="dishes">
+      <mat-card-header>
+
+         <mat-card-title>
+            <h3>{{dishes.name | uppercase}}</h3>
+         </mat-card-title>
+
+      </mat-card-header>
+      <img class="card__img" mat-card-image src={{dishes.image}} alt={{dishes.name}}>
+      <mat-card-content>
+         <p>{{dishes.description}} </p>
+      </mat-card-content>
+      <mat-card-actions>
+         <button mat-button>LIKE</button>
+         <button mat-button>SHARE</button>
+      </mat-card-actions>
+   </mat-card>
+
+   <div class="comentarios">
+
+      <h3 class="comentarios__title">Comentarios</h3>
+
+      <ul class="comentarios__ul" *ngFor="let dish of dishes.comments">
+         <li class="comentarios__li"> {{dish.comment}}</li>
+         <li class="comentarios__li"> {{dish.rating}} Stars</li>
+         <li class="comentarios__li"> {{dish.author}} <span>{{dish.date | date}}</span></li>
+      </ul>
+   </div>
+
+</div>
